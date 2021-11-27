@@ -1,0 +1,81 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  task 1
+    char symbols[] = {'.',',', '!', '?', '(', ')', '[', ']', '{', '}', '+', '-'};
+    char letters[33];
+    int command;
+
+    cout << "Enter command 1-3: ";
+//    do{
+        cin >> command;
+//    } while((command < 1) || (command > 3));
+
+    cout << "Enter 32 letters: ";
+    cin.ignore();
+    cin.getline(letters,33);
+
+    cout << letters  << ": ";
+    if((command > 3) || (command < 1)) cout << "Please enter a valid number!" << endl;
+    for(int i=0;i<32;i++) {
+        if(command == 1) {
+            if(((letters[i] > 64) && (letters[i] < 91)) 
+              || ((letters[i] > 96) && (letters[i] < 123))){
+                cout << letters[i];
+            }
+        }
+        else if(command == 2){
+            if((letters[i] > 47) && (letters[i] < 58)) {
+                cout << letters[i];   
+            }
+        }
+        else if(command == 3) {
+            for(int j = 0; j < 12; j++){
+                if(letters[i] == symbols[j]) { 
+                    cout << letters[i];
+                    break;
+                }
+            } 
+        }
+    }
+    
+    task2
+    char nickname[33];
+
+    cout << "Enter nickname: ";
+    cin.getline(nickname,33);
+//    cout << nickname << endl;
+
+    for(int i=0;i<33;i++) {
+        //if(islower(nickname[i])) nickname[i]-32;
+        if((nickname[i] > 96) && (nickname[i] < 123)) nickname[i] = nickname[i]-32;
+        if(nickname[i] == 'A') nickname[i] = '4';
+        else if(nickname[i] == 'E') nickname[i] = '3';
+        else if(nickname[i] == 'I') nickname[i] = '1';
+        else if(nickname[i] == 'O') nickname[i] = '0';
+        else if(nickname[i] == ' ') nickname[i] = '_';
+    }
+    cout << nickname << endl;
+    return 0;
+    
+    task3
+    char firstName[17], familyName[17];
+
+    cout << "Enter first name: ";
+    cin.getline(firstName,17);
+    cout << "Enter family name: ";
+    cin.getline(familyName,17);
+
+    for(int i=0;i<17;i++) {
+        if((firstName[i] > 64) && (firstName[i] < 91)) firstName[i] = firstName[i] + 32;
+        if((familyName[i] > 64) && (familyName[i] < 91)) familyName[i] = familyName[i] + 32;
+    }
+
+    cout << firstName << "_" << familyName << endl;
+
+    return 0;
+
+
+}
